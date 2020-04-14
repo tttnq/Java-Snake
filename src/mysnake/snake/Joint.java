@@ -1,14 +1,14 @@
-package com.company;
+package mysnake.snake;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Joint {
-    private Rectangle joint;
+    protected Rectangle joint;
     private int x, y;
 
-    public Joint(int x, int y) {
-        this.joint = new Rectangle(10, 10, Color.GREEN);
+    public Joint(int x, int y, Color color) {
+        this.joint = new Rectangle(10, 10, color);
         this.x = x;
         this.y = y;
     }

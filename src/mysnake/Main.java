@@ -1,5 +1,8 @@
-package com.company;
+package mysnake;
 
+import mysnake.snake.Snake;
+import mysnake.rules.Direction;
+import mysnake.rules.GameRule;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,7 +16,7 @@ public class Main extends Application {
     private int points = 0;
 
     public static void main(String[] args) {
-	    launch(args);
+	launch(args);
     }
 
     @Override
@@ -56,7 +59,7 @@ public class Main extends Application {
 
                 snake.move();
 
-                if(gameRule.eatApple(snake, apple)){
+                if(gameRule.collisionWithApple(snake, apple)){
                     snake.grow();
                     apple.drawAppleLocation();
                     snake.move();
@@ -78,8 +81,6 @@ public class Main extends Application {
                 this.before = now;
             }
         }.start();
-
-
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("SnakeGame (Points: 0)");

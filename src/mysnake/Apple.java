@@ -1,4 +1,4 @@
-package com.company;
+package mysnake;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

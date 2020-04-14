@@ -1,13 +1,18 @@
-package com.company;
+package mysnake.rules;
 
 import javafx.scene.shape.Shape;
+import mysnake.Apple;
+import mysnake.Board;
+import mysnake.snake.Joint;
+import mysnake.snake.Snake;
 
-public class GameRule {
+public class GameRule implements Collision{
 
     public GameRule() {
 
     }
-
+    
+    @Override
     public boolean collisionWithWall(Snake snake) {
         int snakeHeadPosX = snake.getJoints().get(0).getX();
         int snakeHeadPosY = snake.getJoints().get(0).getY();
@@ -20,13 +25,15 @@ public class GameRule {
             return false;
         }
     }
-
-    public boolean eatApple(Snake snake, Apple apple){
+    
+    @Override
+    public boolean collisionWithApple(Snake snake, Apple apple){
         Joint snakeHead = snake.getJoints().get(0);
         Shape collisionArea = Shape.intersect(snakeHead.getJointShape(), apple.getApple());
         return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
-
+    
+    @Override
     public boolean collisionWithTail(Snake snake){
         for(int i = snake.getJoints().size() -1; i > 1; i--){
             if(snake.getJoints().get(0).getX() == snake.getJoints().get(i).getX()

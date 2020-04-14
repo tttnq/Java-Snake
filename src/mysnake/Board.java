@@ -1,4 +1,4 @@
-package com.company;
+package mysnake;
 
 public class Board {
     public final static int WIDTH = 640;
